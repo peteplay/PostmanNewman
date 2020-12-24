@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "ccbc40c7-7a81-4407-ae83-35835bb879d1",
+		"name": "Pokemon API Collection",
+		"description": "Run API Collection on the Poke API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Snorlax",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"const response = pm.response.json();",
+							"",
+							"pm.test(\"Ability should be immunity\", function () {",
+							"    pm.expect(response.abilities[0].ability.name).to.eql(\"immunity\");",
+							"});",
+							"",
+							"pm.test(\"Snorlax has 3 abilities\", function () {",
+							"    pm.expect(response.abilities.length).to.eql(3);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v2/pokemon/snorlax/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v2",
+						"pokemon",
+						"snorlax",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
