@@ -25,8 +25,11 @@ jobs:
     - name: Make Directory for results
       run: mkdir -p testResults
 
+    # Run the collection without the report
+    - name: Run Postman collection sans report
+      run: newman run "./tests/Pokemon API Collection.postman_collection.json" -e ./tests/pokemonapi-env.json
 
-    # Run the POSTMAN collection
+    # Run the POSTMAN collection with report
     - name: Run POSTMAN collection
       run: |
        newman run "./tests/Pokemon API Collection.postman_collection.json" -e ./tests/pokemonapi-env.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme
