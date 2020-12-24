@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  test-api-with-newman-newman:
+  test-api-with-newman:
     runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -19,7 +19,7 @@ jobs:
     # Install the newman command line utility and also install the html extra reporter
     - name: Install newman
       run: |
-       npm install -g newman
+       npm install -g newman@4.0.0
        npm install -g newman-reporter-htmlextra
     # Make directory to upload the test results
     - name: Make Directory for results
