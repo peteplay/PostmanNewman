@@ -50,6 +50,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Pidgey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"const response = pm.response.json();",
+							"",
+							"pm.test(\"Abilities should include tangled-feet, keen-eye and big-pecks\", function () {",
+							"    pm.expect(response.abilities[0].ability.name).to.eql(\"keen-eye\");",
+							"    pm.expect(response.abilities[1].ability.name).to.eql(\"tangled-feet\");",
+							"    pm.expect(response.abilities[2].ability.name).to.eql(\"big-pecks\");",
+							"});",
+							"",
+							"pm.test(\"Pidgey has 3 abilities\", function () {",
+							"    pm.expect(response.abilities.length).to.eql(3);",
+							"});",
+							"",
+							"pm.test(\"Pidgey's weight is 18\", function () {",
+							"    pm.expect(response.weight).to.eql(18);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v2/pokemon/pidgey",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v2",
+						"pokemon",
+						"pidgey"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
