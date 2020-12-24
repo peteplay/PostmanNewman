@@ -1,0 +1,15 @@
+{
+	"id": "c3f958c3-112c-4470-b0ca-73516ab35ec3",
+	"name": "pokemonapi-env",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://pokeapi.co/api",
+			"enabled": true
+			
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-05-08T10:32:44.466Z",
+	"_postman_exported_using": "Postman/7.23.0"
+}

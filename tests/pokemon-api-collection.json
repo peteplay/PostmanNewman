@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "06dfbb68-c228-419d-8a5e-7f5e02520dc8",
+		"name": "Pokemon API Collection",
+		"description": "Run API Collection on the Poke API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Snorlax",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af5e392c-d12d-41e9-bbf7-27736ac1e56c",
+						"exec": [
+							"pm.test(\"Status Code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"//Assert response",
+							"pm.test(\"Weight is 4600\", function(){",
+							"    var expectedWeight = 4600;",
+							"    ",
+							"    var response = JSON.parse(responseBody);",
+							"    ",
+							"    var actualWeight = response.weight;",
+							"    ",
+							"    pm.expect(actualWeight).to.eql(expectedWeight);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v2/pokemon/snorlax/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v2",
+						"pokemon",
+						"snorlax",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
