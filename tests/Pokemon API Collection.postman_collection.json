@@ -75,7 +75,7 @@
 							"});",
 							"",
 							"pm.test(\"Pidgey's weight is 18\", function () {",
-							"    pm.expect(response.weight).to.eql(18);",
+							"    pm.expect(response.weight).to.eql(17);",
 							"});",
 							"",
 							""
