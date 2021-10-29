@@ -1,8 +1,9 @@
 name: Test-Build
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request, workflow_dispatch]
+#on:
+#  push:
+#    branches:
+#      - main
 jobs:
   test-api-with-newman:
     runs-on: ubuntu-latest
